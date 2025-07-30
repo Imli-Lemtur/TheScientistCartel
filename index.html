@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>☠️ Cursed Story Generator</title>
+
+</head>
+<body>
+
+  <h1>☠Random Bullshit Go</h1>
+  <p>Enter your fcking name:</p>
+  <input type="text" id="nameInput" placeholder="Your name">
+  <button onclick="generateStory()">Hit me</button>
+
+  <div id="story"></div>
+
+  <script>
+    const friends = ["Onen", "Pongen", "Molu", "Tangi", "Longti", "Manen", "Ben", "Wati", "Imli"];
+    const places = [
+      "the haunted science block at Mayangnokcha",
+      "behind the canteen dumpster in Mokokchung",
+      "the abandoned exam hall with flickering lights",
+      "Dilong’s foggy football field at midnight",
+      "a locked classroom no one remembers being built"
+    ];
+    const actions = [
+      "summoned something using a compass and Maggi",
+      "was digging with bare hands whispering 'he’ll wake up soon…'",
+      "stared into a broken mirror until it blinked",
+      "ran in circles chanting 'O physics, grant me power!'",
+      "ate chalk like candy and spoke fluent Latin for 6 minutes",
+      "found a diary that wrote back insults",
+      "built a voodoo doll using lost ID cards",
+      "was microwaving a frog while laughing uncontrollably",
+      "accidentally opened a cursed meme from 2012"
+    ];
+    const items = [
+      "a flask filled with tears of juniors",
+      "an ancient school tie with stains that move",
+      "a dismembered mannequin hand from biology lab",
+      "a half-burnt attendance sheet with names crossed out",
+      "a lunchbox that growled when opened",
+      "a USB marked 'DO NOT OPEN – EVER'",
+      "a walkie-talkie receiving signals from 1997",
+      "a glowing eraser from unknown origin",
+      "a crow feather dipped in ketchup"
+    ];
+    const twists = [
+      "Then the lights went out. No one remembers what happened next.",
+      "They say the entire event was recorded... but the footage is blank.",
+      "That night, 3 teachers resigned and the group chat name changed on its own.",
+      "The principal was found sleepwalking, holding a broom and whispering 'It's begun...'",
+      "They were all suspended — but no one filed the paperwork.",
+      "To this day, you can hear whispers in the canteen when it's empty."
+    ];
+
+    function random(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateStory() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) {
+        alert("Enter your cursed name first.");
+        return;
+      }
+
+      const location = random(places);
+      let story = `${name} had no idea what they were walking into when they entered ${location}. What followed will scar Mokokchung forever.\n\n`;
+
+      friends.forEach(friend => {
+        story += `${friend} ${random(actions)} while holding ${random(items)}.\n`;
+      });
+
+      story += `\n${random(twists)}\n\nLegend says ${name} never spoke of that night again... but the canteen walls still remember.`;
+
+      document.getElementById("story").innerText = story;
+    }
+  </script>
+
+</body>
+</html>
